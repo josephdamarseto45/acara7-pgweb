@@ -27,7 +27,8 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        //var marker = L.marker(-7.779160828346752, 110.36570326553675).addTo(map);
+        var marker = L.marker((-7.540580743974556, 110.44570184402276)).addTo(map);
+        marker.bindPopup("Area Gunung Merapi").openPopup();
 
         var circle = L.circle([-7.783582926561776, 110.37686125478787], {
             color: 'red',
@@ -40,7 +41,7 @@
             ["Mixue Tugu", -7.781863409215699, 110.36690467676499],
             ["Hotel Santika", -7.7823477900303875, 110.36974118882276],
             ["ELS Komputer", -7.77822564411543, 110.37362537915189],
-            ["Depaertemen Teknoologi Kebumian", -7.774887337532827, 110.37452170488513],
+            ["Departemen Teknoologi Kebumian", -7.774887337532827, 110.37452170488513],
             ["TILC", -7.773792889280373, 110.3725308282492],
         ];
         for (var i = 0; i < locations.length; i++) {
