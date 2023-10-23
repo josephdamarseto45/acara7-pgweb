@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        #map {
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([-7.779160828346752, 110.36570326553675], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        //var marker = L.marker(-7.779160828346752, 110.36570326553675).addTo(map);
+
+        var circle = L.circle([-7.783582926561776, 110.37686125478787], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+        // Array Marker
+        var locations = [
+            ["Mixue Tugu", -7.781863409215699, 110.36690467676499],
+            ["Hotel Santika", -7.7823477900303875, 110.36974118882276],
+            ["ELS Komputer", -7.77822564411543, 110.37362537915189],
+            ["Depaertemen Teknoologi Kebumian", -7.774887337532827, 110.37452170488513],
+            ["TILC", -7.773792889280373, 110.3725308282492],
+        ];
+        for (var i = 0; i < locations.length; i++) {
+            marker = new L.marker([locations[i][1], locations[i][2]])
+                .bindPopup(locations[i][0])
+                .addTo(map);
+        }
+
+        var polygon = L.polygon([
+            [-7.773207595770966, 110.37364227809367],
+            [-7.773858600885238, 110.37524709122597],
+            [-7.7760823806724755, 110.37435165201019],
+            [-7.775465945493407, 110.37273520979724],
+        ]).addTo(map);
+
+        var popup = L.popup();
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+        map.on('click', onMapClick)
+
+
+    </script>
+
+
+
+</body>
+
+</html>
