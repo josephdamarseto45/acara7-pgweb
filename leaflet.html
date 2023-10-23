@@ -27,14 +27,14 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        var marker = L.marker((-7.540580743974556, 110.44570184402276)).addTo(map);
-        marker.bindPopup("Area Gunung Merapi").openPopup();
+        //var marker = L.marker((-7.540580743974556, 110.44570184402276)).addTo(map);
+        //marker.bindPopup("Area Gunung Merapi").openPopup();
 
-        var circle = L.circle([-7.779160828346752, 110.36570326553675], {
+        var circle = L.circle([-7.543742, 110.446448], {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
-            radius: 15000
+            radius: 3000
         }).addTo(map);
         circle.bindPopup("Gunung Merapi");
         // Array Marker
@@ -57,6 +57,7 @@
             [-7.7760823806724755, 110.37435165201019],
             [-7.775465945493407, 110.37273520979724],
         ]).addTo(map);
+        polygon.bindPopup("Sekolah Vokasi UGM");
 
         var popup = L.popup();
         function onMapClick(e) {
